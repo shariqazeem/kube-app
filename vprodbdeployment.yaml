@@ -17,10 +17,6 @@ spec:
       containers:
       - name: vprodb
         image: shariqazeem/vprofiledb:V1
-        tolerations:
-        - key: "node-role.kubernetes.io/control-plane"
-          operator: "Exists"
-          effect: "NoSchedule"
         args:
          - "--ignore-db-dir=lost+found"
         volumeMounts:
@@ -35,6 +31,10 @@ spec:
              secretKeyRef:
                name: app-secret
                key: db-pass
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
       nodeSelector:
         zone: us-east-1a
       volumes:
