@@ -19,6 +19,10 @@ spec:
       containers:
       - name: vprodb
         image: shariqazeem/vprofiledb:V1
+        tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
         args:
          - "--ignore-db-dir=lost+found"
         volumeMounts:
