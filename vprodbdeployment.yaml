@@ -14,6 +14,8 @@ spec:
       labels:
         app: vprodb
     spec:
+      nodeSelector:
+        zone: us-east-1b  # <-- add this line to specify the node selector
       containers:
       - name: vprodb
         image: shariqazeem/vprofiledb:V1
@@ -31,11 +33,9 @@ spec:
              secretKeyRef:
                name: app-secret
                key: db-pass
-      nodeSelector:
-        zone: us-east-1a
       volumes:
         - name: vpro-db-data
           # This AWS EBS volume must already exist.
           awsElasticBlockStore:
-             volumeID: vol-072061b3ac29125c8
+             volumeID: vol-0cf1020b6de5e4ef4
              fsType: ext4
