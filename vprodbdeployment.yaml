@@ -34,9 +34,7 @@ spec:
       tolerations:
       - key: "node-role.kubernetes.io/master"
         operator: "Exists"
-        effect: "NoSchedule"          
-      nodeSelector:
-        zone: us-east-2a
+        effect: "NoSchedule"
       volumes:
         - name: vpro-db-data
           # This AWS EBS volume must already exist.
