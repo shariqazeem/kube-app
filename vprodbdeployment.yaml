@@ -31,10 +31,6 @@ spec:
              secretKeyRef:
                name: app-secret
                key: db-pass
-      tolerations:
-      - key: "node-role.kubernetes.io/master"
-        operator: "Exists"
-        effect: "NoSchedule"
       volumes:
         - name: vpro-db-data
           # This AWS EBS volume must already exist.
