@@ -17,7 +17,7 @@ spec:
       volumes:
           - name: vpro-db-data
             persistentVolumeClaim:
-              claimName: vpro-db-data
+              claimName: pvc
       containers:
       - name: vprodb
         image: shariqazeem/vprofiledb:V1
