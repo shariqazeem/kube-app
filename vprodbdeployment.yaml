@@ -31,6 +31,10 @@ spec:
              secretKeyRef:
                name: app-secret
                key: db-pass
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"          
       nodeSelector:
         zone: us-east-2a
       volumes:
