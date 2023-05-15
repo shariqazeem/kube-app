@@ -1,12 +1,11 @@
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 metadata:
-  name: vpro-db-data
+  name: vpro-db-pvc
 spec:
-  capacity:
-    storage: 3Gi
   accessModes:
     - ReadWriteOnce
-  awsElasticBlockStore:
-    volumeID: vol-0676f281e794c9001
-    fsType: ext4
+  resources:
+    requests:
+      storage: 3Gi
+  storageClassName: ""
