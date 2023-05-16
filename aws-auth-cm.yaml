@@ -6,7 +6,7 @@ metadata:
 data:
   mapRoles: |
     - rolearn: arn:aws:iam::900569011602:user/kopsadmin
-      username: system:node:{{EC2PrivateDNSName}}
+      username: system:node:{{kubevpro.shariqdevops.online}}
       groups:
         - system:bootstrappers
         - system:nodes
