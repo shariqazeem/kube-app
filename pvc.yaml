@@ -11,4 +11,4 @@ spec:
   selector:
     matchLabels:
       pv-name: vpro-db-data-pv
-  storageClassName: "my-storage-class"
+  storageClassName: "slow"
