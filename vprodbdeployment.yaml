@@ -32,8 +32,6 @@ spec:
                name: app-secret
                key: db-pass
       volumes:
-        - name: vpro-db-data
-          # This AWS EBS volume must already exist.
-          awsElasticBlockStore:
-             volumeID: vol-0e1499197fa6e80dc
-             fsType: ext4
+      - name: vpro-db-data
+        persistentVolumeClaim:
+          claimName: vpro-db-data-pvc
