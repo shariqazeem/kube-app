@@ -11,4 +11,4 @@ spec:
   selector:
     matchLabels:
       pv-name: vpro-db-data-pv
-  storageClassName: "kops-csi-1-21"
+  storageClassName: "my-storage-class"
