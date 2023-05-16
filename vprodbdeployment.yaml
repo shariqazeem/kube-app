@@ -15,23 +15,23 @@ spec:
         app: vprodb
     spec:
       containers:
-      - name: vprodb
-        image: shariqazeem/vprofiledb:V1
-        args:
-         - "--ignore-db-dir=lost+found"
-        volumeMounts:
-        - mountPath: /var/lib/mysql
-          name: vpro-db-data
-        ports:
-        - name: vprodb-port
-          containerPort: 3306
-        env:
-         - name: MYSQL_ROOT_PASSWORD
-           valueFrom:
-             secretKeyRef:
-               name: app-secret
-               key: db-pass
+        - name: vprodb
+          image: shariqazeem/vprofiledb:V1
+          args:
+            - "--ignore-db-dir=lost+found"
+          volumeMounts:
+            - name: vprodb-storage
+              mountPath: /var/lib/mysql
+          ports:
+            - name: vprodb-port
+              containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: db-pass
       volumes:
-      - name: vpro-db-data
-        persistentVolumeClaim:
-          claimName: vpro-db-data-pvc
+        - name: vprodb-storage
+          persistentVolumeClaim:
+            claimName: vpro-db-data-pvc
