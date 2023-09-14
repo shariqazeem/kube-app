@@ -5,8 +5,8 @@ metadata:
   namespace: kube-system
 data:
   mapRoles: |
-    - rolearn: arn:aws:iam::900569011602:user/kopsadmin
-      username: system:node:ip-172-20-55-199.us-east-2.compute.internal
+    - rolearn: arn:aws:iam::960446693452:user/kops-admin
+      username: system:node:ip-172-31-0-130.us-east-2.compute.internal
       groups:
         - system:bootstrappers
         - system:nodes
